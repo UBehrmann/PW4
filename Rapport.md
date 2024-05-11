@@ -1,21 +1,3 @@
-# Questions
-
-1.
--  What is the learning algorithm being used to optimize the weights of the neural networks? 
-- What are the parameters (arguments) being used by that algorithm? 
-- What loss function is being used ? 
-- Please, give the equation(s)
-
-2. For each experiment excepted the last one (shallow network learning from raw data, shallow network learning from features and CNN):
-
-- Select a neural network topology and describe the inputs, indicate how many are they, and how many outputs?
-- Compute the number of weights of each model (e.g., how many weights between the input and the hidden layer, how many weights between each pair of layers, biases, etc..) and explain how do you get to the total number of weights.
-- Test at least three different meaningful cases (e.g., for the MLP exploiting raw data, test different models varying the number of hidden neurons, for the feature-based model, test pix_p_cell 4 and 7, and number of orientations or number of hidden neurons, for the CNN, try different number of neurons in the feed-forward part) describe the model and present the performance of the system (e.g., plot of the evolution of the error, final evaluation scores and confusion matrices). Comment the differences in results. Are there particular digits that are frequently confused?
-
-3. The CNNs models are deeper (have more layers), do they have more weights than the shallow ones? explain with one example.
-
-4. Train a CNN for the chest x-ray pneumonia recognition. In order to do so, complete the code to reproduce the architecture plotted in the notebook. Present the confusion matrix, accuracy and F1-score of the validation and test datasets and discuss your results.
-
 <P style="page-break-before: always">
 
 <div align="justify" style="margin-right:25px;margin-left:25px">
@@ -29,7 +11,7 @@
 
 ## Learning algorithm
 
-We will use the same learning algorithm for all the experiments: RMSprop. We will also use the same parameters for all the experiments.
+We will use the same learning algorithm for the first 3 experiments: RMSprop. We will also use the same parameters for all the experiments.
 
 | <!-- -->       | <!-- -->                 |
 | -------------- | ------------------------ |
@@ -50,7 +32,7 @@ The number of weights between two layers is calculated by multiplying the number
 
 ![Number of weights](images/weights.PNG)
 
-## Example
+### Example
 
 The input layer has 784 neurons and the output layer has 10 neurons.
 
@@ -61,6 +43,12 @@ Layer 2: $ 16 \times 10 + 10 = 170 $
 Total: $ 12560 + 170 = 12730 $
 
 Inputs 392
+
+## Do deeper networks have more weights than shallow ones?
+
+The answer is perhaps. The number of weights in a neural network is not only determined by the number of layers, but also by the number of neurons in each layer. A deep network with few neurons in each layer can have fewer weights than a shallow network with many neurons in each layer.
+
+The performance of a neural network is also not only determined by the number of weights. A deep network can have a better performance than a shallow network with the same number of weights. It is important to find the right balance between the number of layers and the number of neurons in each layer. Also activation functions and learning algorithms play an important role in the performance of a neural network.
 
 <P style="page-break-before: always">
 
@@ -91,6 +79,8 @@ model = Sequential
 | Trainable params:     | 1,600 (6.25 KB) |
 | Non-trainable params: | 0 (0.00 B)      |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->           |
@@ -99,6 +89,8 @@ model = Sequential
 | Test accuracy: | 0.5831999778747559 |
 
 ![Performance first model](./images/1%20first%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -109,6 +101,8 @@ model = Sequential
 | F1 micro Score:    | 0.5832             |
 
 ![Confusion matrix 1](./images/1%20first%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Second model
 
@@ -125,6 +119,8 @@ model = Sequential
 | Trainable params:     | 12,730 (49.73 KB) |
 | Non-trainable params: | 0 (0.00 B)        |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->            |
@@ -133,6 +129,8 @@ model = Sequential
 | Test accuracy: | 0.9480000138282776  |
 
 ![Performance second model](./images/1%20second%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -143,6 +141,8 @@ model = Sequential
 | F1 micro Score:    | 0.948              |
 
 ![Confusion matrix 2](./images/1%20second%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Third model
 
@@ -159,6 +159,8 @@ model = Sequential
 | Trainable params:     | 201,940 (788.83 KB) |
 | Non-trainable params: | 0 (0.00 B)          |
 
+<P style="page-break-before: always">
+
 ### Performance
 | <!-- -->       | <!-- -->            |
 | -------------- | ------------------- |
@@ -166,6 +168,8 @@ model = Sequential
 | Test accuracy: | 0.9811999797821045  |
 
 ![Performance third model](./images/1%20third%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -176,6 +180,8 @@ model = Sequential
 | F1 micro Score:    | 0.9812             |
 
 ![Confusion matrix 3](./images/1%20third%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Conclusion of the first exercise
 
@@ -196,7 +202,6 @@ The first one, we will keep the parameters as we got them in den notebook.
 For the second one, we will increase the number of pix_p_cells to 7 and increase the hidden neurons to 16.
 
 For the third one, we will increase the number of orientations to 16.
-
 
 ## First model
 
@@ -221,6 +226,8 @@ Output layer: 10 neurons
 | Trainable params:     | 816 (3.19 KB) |
 | Non-trainable params: | 0 (0.00 B)    |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->           |
@@ -229,6 +236,8 @@ Output layer: 10 neurons
 | Test accuracy: | 0.8055999875068665 |
 
 ![Performance first model](./images/2%20first%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -239,6 +248,8 @@ Output layer: 10 neurons
 | F1 micro Score:    | 0.8056000000000001 |
 
 ![Confusion matrix 1](./images/2%20first%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Second model
 
@@ -263,6 +274,8 @@ Output layer: 10
 | Trainable params:     | 2,234 (8.73 KB) |
 | Non-trainable params: | 0 (0.00 B)      |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->            |
@@ -271,6 +284,8 @@ Output layer: 10
 | Test accuracy: | 0.9553999900817871  |
 
 ![Performance second model](./images/2%20second%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -281,6 +296,8 @@ Output layer: 10
 | F1 micro Score:    | 0.9554             |
 
 ![Confusion matrix 2](./images/2%20second%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Third model
 
@@ -305,6 +322,8 @@ Output layer: 10
 | Trainable params:     | 4,282 (16.73 KB) |
 | Non-trainable params: | 0 (0.00 B)       |
 
+<P style="page-break-before: always">
+
 ### Performance
 | <!-- -->       | <!-- -->           |
 | -------------- | ------------------ |
@@ -312,6 +331,8 @@ Output layer: 10
 | Test accuracy: | 0.961899995803833  |
 
 ![Performance third model](./images/2%20third%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -360,6 +381,8 @@ model = functional
 | Trainable params:     | 114 (456.00 B) |
 | Non-trainable params: | 0 (0.00 B)     |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->           |
@@ -368,6 +391,8 @@ model = functional
 | Test accuracy: | 0.3634999990463257 |
 
 ![Performance first model](./images/3%20first%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -378,6 +403,8 @@ model = functional
 | F1 micro Score:    | 0.36349999999999993 |
 
 ![Confusion matrix 1](./images/3%20first%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Second model
 
@@ -402,6 +429,8 @@ model = functional
 | Trainable params:     | 762 (2.98 KB) |
 | Non-trainable params: | 0 (0.00 B)    |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->            |
@@ -410,6 +439,8 @@ model = functional
 | Test accuracy: | 0.9283000230789185  |
 
 ![Performance first model](./images/3%20second%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -420,6 +451,8 @@ model = functional
 | F1 micro Score:    | 0.9283             |
 
 ![Confusion matrix 1](./images/3%20second%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Third model
 
@@ -444,6 +477,8 @@ model = functional
 | Trainable params:     | 2,858 (11.16 KB) |
 | Non-trainable params: | 0 (0.00 B)       |
 
+<P style="page-break-before: always">
+
 ### Performance
 
 | <!-- -->       | <!-- -->            |
@@ -452,6 +487,8 @@ model = functional
 | Test accuracy: | 0.9768000245094299  |
 
 ![Performance first model](./images/3%20third%20model%20performance.png)
+
+<P style="page-break-before: always">
 
 ### Confusion matrix
 
@@ -462,6 +499,8 @@ model = functional
 | F1 micro Score:    | 0.9768             |
 
 ![Confusion matrix 1](./images/3%20third%20model%20conf%20matrix.png)
+
+<P style="page-break-before: always">
 
 ## Conclusion of the third exercise
 
@@ -476,6 +515,48 @@ The third model has the best performance, but it is also the one which overfits 
 
 # CNN for chest x-ray pneumonia recognition
 
+## Weights
 
+| Layer            | Output Shape        | Param # |
+| ---------------- | ------------------- | ------: |
+| input_layer      | (None, 128, 128, 1) |       0 |
+| conv_1 (Conv2D)  | (None, 128, 128, 8) |      16 |
+| max_pooling_1    | (None, 64, 64, 8)   |       0 |
+| conv_2 (Conv2D)  | (None, 64, 64, 16)  |     144 |
+| max_pooling_2    | (None, 32, 32, 16)  |       0 |
+| conv_3 (Conv2D)  | (None, 32, 32, 32)  |     544 |
+| max_pooling_3    | (None, 16, 16, 32)  |       0 |
+| conv_4 (Conv2D)  | (None, 16, 16, 64)  |   2,112 |
+| max_pooling_4    | (None, 8, 8, 64)    |       0 |
+| conv_5 (Conv2D)  | (None, 8, 8, 128)   |   8,320 |
+| max_pooling_5    | (None, 4, 4, 128)   |       0 |
+| flatten_7        | (None, 2048)        |       0 |
+| dense_21 (Dense) | (None, 32)          |  65,568 |
+| dense_22 (Dense) | (None, 16)          |     528 |
+| dense_23 (Dense) | (None, 1)           |      17 |
+
+| <!-- -->              | <!-- -->           |
+| --------------------- | ------------------ |
+| Total params:         | 77,249 (301.75 KB) |
+
+## Performance
+
+![Model Loss](./images/4%20Model%20Loss.png)
+
+![Model Accuracy](./images/4%20Model%20Accuracy.png)
+
+<P style="page-break-before: always">
+
+## Validation
+
+| <!-- -->       | <!-- -->            |
+| -------------- | ------------------- |
+| F1 score:      | 0.8889               |
+
+![Confusion matrix validation](./images/4%20conf%20matrix.png)
+
+## Conclusion of the fourth exercise
+
+The model has a good performance with a ~89% accuracy. It only classified one of the 16 images wrong. The model could be improved by increasing the number of epochs. At the 3rd epoch, we have a dip in validation accuracy, which could be improved by training the model for more epochs.
 
 </div>
