@@ -185,11 +185,11 @@ model = Sequential
 
 ## Conclusion of the first exercise
 
-First model has the highest error rate, as expected, because it has the lowest capacity. 
+First model has the highest error rate, as expected, because it has the lowest capacity. There are confusions between number 2 and 6, 5 is often classified as 3, 8 as 3 and 9 as 7. This is probably because the model is not complex enough to distinguish between these numbers.
 
-The second model has a better performance than the first model, but it is still not as good as the third model. 
+The second model has a better performance than the first model, but it is still not as good as the third model. There are no major confusions in this model.
 
-The third model has the lowest error rate, but it is also the model with the highest capacity. We can see in the performance plots that the third model is overfitting the training data.
+The third model has the lowest error rate, but it is also the model with the highest capacity. We can see in the performance plots that the third model is overfitting the training data. As the second model, there are no major confusions in this model.
 
 <P style="page-break-before: always">
 
@@ -345,6 +345,8 @@ Output layer: 10
 ![Confusion matrix 3](./images/2%20third%20model%20conf%20matrix.png)
 
 ## Conclusion of the second exercise
+
+We don't have any confusion between the numbers in this exercise, even the first model which has the lowest performance. This is probably because the model is complex enough to distinguish between these numbers and we don't have too difficult numbers to distinguish.
 
 The first model has the lowest performance, as expected, because it has the lowest capacity. But it has still a good performance: ~80% accuracy. This is better than the first model of the first exercise which has the same capacity.
 
@@ -504,11 +506,11 @@ model = functional
 
 ## Conclusion of the third exercise
 
-The first model has the lowest performance, as expected, because it has the lowest capacity. It has the worst performance from all first models with a ~36% accuracy.
+The first model has the lowest performance, as expected, because it has the lowest capacity. It has the worst performance from all first models with a ~36% accuracy. There are confusions between number 2 and 6, 5 is often classified as 3, 8 as 3 and 9 as 7. This is probably because the model is not complex enough to distinguish between these numbers. It could only classify 1 really good and 4 and 7 around 70% of the time. All other numbers are classified around correctly 40% or less .
 
-The second model has a better performance, but the training isn't quite finished with 50 epochs. This shows in the confusion matrix, where it only gets to ~93% accuracy.
+The second model has a better performance, but the training isn't quite finished with 50 epochs. This shows in the confusion matrix, where it only gets to ~93% accuracy. There are no major confusions in this model. This model has only a few minor confusions,  like 7 with 2, 5 with 8, 0 with 1. Probably because the images were more difficult to distinguish.
 
-The third model has the best performance, but it is also the one which overfits the most. It begins to overfit the training data at ~20 epochs. It still does have the best performance of this experiment with a ~97% accuracy.
+The third model has the best performance, but it is also the one which overfits the most. It begins to overfit the training data at ~20 epochs. It still does have the best performance of this experiment with a ~97% accuracy. A the second model, there are no major confusions in this model. We have negligible confusions between 9 with 4, 8 with 5, 2 with 7. Same as the second model, probably because the images were more difficult to distinguish, but it could classify images which the second model couldn't.
 
 
 <P style="page-break-before: always">
@@ -558,5 +560,7 @@ The third model has the best performance, but it is also the one which overfits 
 ## Conclusion of the fourth exercise
 
 The model has a good performance with a ~89% accuracy. It only classified one of the 16 images wrong. The model could be improved by increasing the number of epochs. At the 3rd epoch, we have a dip in validation accuracy, which could be improved by training the model for more epochs.
+
+I tried to see the differences between the images with pneumonia and the images without pneumonia. I couldn't see any differences between the images. While I could classify the numbers correctly in the previous exercises. This CNN model could probably have a 100% accuracy if we had trained it at the number classification task.
 
 </div>
